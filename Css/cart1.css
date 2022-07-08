@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+:root {
+  --font: "Roboto", sans-serif;
+}
+table {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+thead tr {
+  background: linear-gradient(
+    to bottom,
+    rgba(242, 56, 0, 1) 0%,
+    rgba(247, 129, 2, 1) 100%
+  ) !important;
+  color: #fafafa;
+  font-family: var(--font);
+}
+tbody td,
+.cart-total td {
+  font-family: var(--font);
+}
+tbody th .fa-solid {
+  color: #616161;
+}
+.cart-total h1 {
+  text-transform: uppercase;
+  font-family: var(--font);
+  color: #ff4b01;
+  font-size: 1.7rem;
+}
+.btn-primary {
+  background: linear-gradient(
+    to bottom,
+    rgba(242, 56, 0, 1) 0%,
+    rgba(247, 129, 2, 1) 100%
+  ) !important;
+  border-color: #ff4b01 !important;
+}
+.btn {
+  text-transform: capitalize;
+  font-family: var(--font);
+}

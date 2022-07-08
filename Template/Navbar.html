@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="./Assets/orangeLogo.png">
+    <link rel="apple-touch-icon" href="./Assets/logo.png">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> 
+    
+    <title>VIP Mobile Number | Fancy</title>
+</head>
+<body>
+    <section style="background:linear-gradient(to bottom, rgba(242,56,0,1) 0%, rgba(247,129,2,1) 100%);">
+        <div class="container-fluid nav-top px-4">
+        <div class="d-flex justify-content-between align-items-center w-100" style="color:white">
+          <div class="d-flex align-items-center">
+          <div class="icon-wrap-cont">
+          <a href="tel:9530000007" style="color:white"> Call Now  +91 95300 00007</a>
+          </div>
+        </div>
+          <div class="d-flex">
+          <div class="icon-wrap-cont">
+            <a  class="text-white" href="./soldOut.html"><span class="fa-solid fa-square-check me-1"></span> Sold out</a>
+          </div>
+          <div class="icon-wrap-cont ms-2">|</div>
+          <div class="icon-wrap-cont ms-2">
+            <a class="text-white" href="./About.html"><i class="fa-solid fa-id-badge me-1"></i> About</a>
+         
+        </div>
+        <div class="icon-wrap-cont ms-2">|</div>
+        <div class="d-flex align-items-center">     
+            <div class="d-flex align-items-center ms-3"><i class="fa-brands fa-facebook-f"></i>
+              <i class="fa-brands fa-twitter px-3"></i><i class="fa-brands fa-instagram"></i></div>
+                </div>
+        </div>
+    
+        </div>
+      </section>
+    
+  
+    <header>
+      <nav class="navbar navbar-expand-lg d-none d-lg-block py-0" id="navbar-top" style="background: white;" > 
+           <div class="container-fluid px-2" data-aos="fade-right">
+             <a class="navbar-brand ms-3" href="./index3.html"><div><img src="Assets/orangeLogo.png" ></div></a>
+             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon fa-solid fa-bars"></span>
+             </button>
+             <div class="collapse navbar-collapse " id="navbarNav">
+               <form class="form-inline my-2 my-lg-0 mx-auto d-flex">
+                   <select class="custom-select" id="inputGroupSelect01">
+                     <option selected>Anywhere</option>
+                     <option >Sum Total</option>
+                     <option value="1">Starts with</option>
+                     <option value="2">Ends with</option>
+                     <option value="2">Contains with</option>
+                     <option value="2">Not Contains</option>
+                   </select>
+                  
+  
+                 <input class="form-control mr-sm-2 " type="search" placeholder="Search number" aria-label="Search">
+                 <button class="btn btn-outline-danger my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+               </form>
+               <ul class="navbar-nav me-3" data-aos="fade-right">
+                <li class="nav-item d-flex flex-column align-items-center">
+                  <a class="nav-link"  href="./index3.html"><span class="fa-solid fa-house me-1"></span>Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./vipNumber.html"><i class="fa-solid fa-store me-1"></i>Vip Numbers</a>
+                </li> 
+               
+                <li class="nav-item">
+                  <a class="nav-link" href="./offer.html"><i class="fa-solid fa-sack-dollar me-1"></i>Offer</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./wishlist.html"><i class="fa-solid fa-heart me-1"></i>Wishlist</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./contactUs.html"><i class="fa-solid fa-phone me-1"></i>Contact</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./cart.html"><i class="fa-solid fa-cart-shopping me-1"></i>Cart</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./sign.html"><i class="fa-solid fa-user me-1"></i></a>
+                </li>
+              </ul>
+             </div>
+           </div>
+         </nav>
+       </header>
+
+      
+       <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+       <script>
+         AOS.init({
+            duration:1000}
+         );
+         window.addEventListener("scroll",function(){
+    let nav=document.getElementById("navbar-top");
+    if(window.pageYOffset==0){
+      nav.classList.remove("fixed-top");
+      nav.style.boxShadow="none"
+    }
+    if(window.pageYOffset>0){  
+      nav.classList.add("fixed-top");
+      nav.style.boxShadow="0 8px 6px -6px black"
+     }
+  })
+       </script>
+      
+</body>
+</html>

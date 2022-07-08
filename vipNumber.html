@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0,,minimum-scale=1"
+    />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="./Assets/orangeLogo.png"
+    />
+    <link rel="apple-touch-icon" href="./Assets/logo.png" />
+    <link rel="stylesheet" type="text/css" href="./Css/vipNumber.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link href="./Css/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="./Css/index3.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v6.1.1/css/all.css"
+    />
+
+    <title>VIP Mobile Number | Fancy</title>
+  </head>
+  <body>
+    <div class="content-wrapper">
+      <div class="d-none d-lg-block">
+        <div id="nav-placeholder"></div>
+        <script>
+          $(document).ready(function () {
+            $("#nav-placeholder").load("./Template/Navbar.html");
+          });
+        </script>
+        <section style="background: #fff; margin: 1.2rem 0 0.5rem 0">
+          <div
+            class="container d-flex justify-content-center align-items-center"
+          >
+            <div data-aos="fade-right" class="ms-2">
+              <h1 class="text-center" style="color: #2f3043; font-size: 3.4rem">
+                Find it,
+                <span style="color: rgba(242, 56, 0, 1)">Love it, </span>Buy it.
+              </h1>
+            </div>
+
+            <figure data-aos="fade-left">
+              <img src="./Assets/vip.svg" style="width: 14rem" />
+            </figure>
+          </div>
+        </section>
+
+        <section class="px-1">
+          <div class="container-fluid">
+            <div class="row mb-3">
+              <div class="col-xl-3 col-lg-3">
+                <form>
+                  <div class="mb-2 reset-div" style="display: none">
+                    <button
+                      style="border-radius: 5px; width: 100%"
+                      class="col-btn fw-bold py-1"
+                      type="reset"
+                    >
+                      RESET<i class="fa-solid fa-arrows-rotate ms-2"></i>
+                    </button>
+                  </div>
+                  <div
+                    class="d-flex flex-column p-2 pt-4 vip-col-filter"
+                    style="
+                      border: 2px solid #eddfc4;
+                      box-shadow: 0 0 10px #000;
+                      border-radius: 5px;
+                    "
+                  >
+                    <h6 class="">SUM-TOTAL Search</h6>
+                    <div class="form-inline d-flex align-items-center">
+                      <input
+                        class="form-control"
+                        min="0"
+                        max="99"
+                        type="number"
+                        placeholder="Sum total search"
+                        aria-label="Number"
+                        style="border: 1px solid orangered"
+                        oninput="format(this)"
+                      />
+                      <button class="btn btn-outline-danger" type="submit">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                      </button>
+                    </div>
+                    <div class="d-flex flex-column mt-3">
+                      <h6 class="mb-0 text-nowrap">Number Starts With</h6>
+                      <select class="collapse-select w-100 mt-1">
+                        <option selected disabled>Select</option>
+                        <option value="All series">All Series</option>
+                        <option value="9">9 Series</option>
+                        <option value="8">8 Series</option>
+                        <option value="7">7 Series</option>
+                        <option value="6">6 Series</option>
+                      </select>
+                    </div>
+                    <div class="d-flex flex-column mt-3">
+                      <h6 class="mb-0 text-nowrap">Number Not Contains</h6>
+                      <div class="d-flex align-items-center">
+                        <select class="vip-select-2 w-100 mt-1">
+                          <option disabled selected>Select</option>
+                          <option value="0">0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                        </select>
+                        <div
+                          class="ms-2"
+                          style="color: #0645ad; cursor: pointer"
+                          onclick="clearCategory2()"
+                        >
+                          Clear
+                        </div>
+                      </div>
+                    </div>
+                    <div id="select-pills-2" class="d-flex flex-wrap"></div>
+                    <div class="mt-3">
+                      <h6 class="mb-0 text-nowrap">PRICE</h6>
+                      <select class="mt-1 collapse-select w-100">
+                        <option selected disabled>Select</option>
+                        <option value="9">0-1500</option>
+                        <option value="8">1501-3000</option>
+                        <option value="7">3001-5000</option>
+                        <option value="6">5001-10000</option>
+                        <option value="6">10001-30000</option>
+                        <option value="6">30001-50000</option>
+                        <option value="6">50001-100000</option>
+                        <option value="6">100000-1000000</option>
+                      </select>
+                    </div>
+
+                    <div class="mt-3">
+                      <h5>Categories</h5>
+                      <div class="categories-cont"></div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+
+              <div class="col-xl-9 col-lg-9 col-md-12 gx-1">
+                <div class="d-flex flex-column">
+                  <div class="d-flex filter-cont align-items-center">
+                    <button>
+                      Sort By <span class="fa-solid fa-filter ms-1"></span>
+                    </button>
+                    <a href="" class="ms-2">Price Low to High</a>
+                    <a href="">Price High to Low</a>
+                    <a href="">Recently Added</a>
+                  </div>
+
+                  <div class="w-100 mt-3">
+                    <div class="row g-2 card-vip-row"></div>
+                    <div class="row">
+                      <div class="col-12 d-flex justify-content-center">
+                        <button
+                          style="width: 80%"
+                          class="col-btn mt-4 mx-auto more"
+                        >
+                          <i class="fa-solid fa-caret-down me-2"></i> More
+                          Numbers
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div id="foot-placeholder"></div>
+        <script>
+          $(document).ready(function () {
+            $("#foot-placeholder").load("./Template/Footer.html");
+          });
+        </script>
+      </div>
+      <div class="d-block d-lg-none">
+        <div id="mobNav-placeholder"></div>
+        <script>
+          $(document).ready(function () {
+            $("#mobNav-placeholder").load("./Template/mobileNavbar.html");
+          });
+        </script>
+
+        <section style="background: #fff; margin-top: 1rem">
+          <div class="container-fluid">
+            <div class="row d-flex align-items-center">
+              <div class="col-7 gx-0">
+                <h5
+                  class="text-center"
+                  data-aos="fade-right"
+                  style="color: #2f3043"
+                >
+                  Find it,
+                  <span style="color: rgba(242, 56, 0, 1)">Love it, </span>Buy
+                  it.
+                </h5>
+              </div>
+              <div class="col-5 gx-0">
+                <figure data-aos="fade-left">
+                  <img src="./Assets/vip.svg" style="height: 8rem" />
+                </figure>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div
+          class="d-flex align-items-center w-100 justify-content-center py-1 icon-banner mb-2"
+          style="background: rgb(245, 237, 239)"
+        >
+          <li class="nav-item">
+            <a class="nav-link p-1" href="./vipNumber.html"
+              ><span class="fa-solid fa-heart fav"></span>Wishlist</a
+            >
+          </li>
+          <li class="nav-item ms-2">
+            <a class="nav-link p-1" href="./offer.html"
+              ><span class="fa-solid fa-sack-dollar off"></span>Offer</a
+            >
+          </li>
+          <li class="nav-item ms-2">
+            <a class="nav-link p-1" href="./soldOut.html"
+              ><span class="fa-solid fa-star star"></span>Review</a
+            >
+          </li>
+          <li class="nav-item ms-2">
+            <a class="nav-link p-1 shadow-none" href="tel:+8100180000"
+              ><span class="fa-solid fa-phone call"></span>Contact</a
+            >
+          </li>
+        </div>
+
+        <div class="d-flex filter-cont align-items-center ps-3">
+          <button>Sort By <span class="fa-solid fa-filter ms-1"></span></button>
+          <a href="" style="font-size: 10px">Price Low to High</a>
+          <a href="" style="font-size: 10px">Price High to Low</a>
+        </div>
+
+        <section style="background: #fff; padding: 1rem 0; border-radius: 12px">
+          <div class="container-fluid px-1">
+            <div class="row g-2 card-sm-row"></div>
+            <div class="row">
+              <div class="col-12 d-flex justify-content-center w-100">
+                <button style="width: 80%" class="col-btn mt-4 more-sm">
+                  <i class="fa-solid fa-caret-down me-2"></i> More Number
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div id="mobFoot-placeholder"></div>
+        <script>
+          $(document).ready(function () {
+            $("#mobFoot-placeholder").load("./Template/mobileFooter.html");
+          });
+        </script>
+      </div>
+    </div>
+
+    <script src="./Js/js/bootstrap.min.js"></script>
+    <script src="./Js/vipNumber.js"></script>
+    <script>
+      let categoryCont = document.querySelector(".categories-cont");
+      let CategoryData;
+      const fetcData = async () => {
+        const response = await fetch(
+          "http://167.71.237.36/api/v1/customer/fetch_all_categories"
+        );
+        const data = await response.json();
+        CategoryData = data.data;
+        CategoryData.forEach((element, index) => {
+          const carouselItem = document.createElement("div");
+          carouselItem.innerHTML = `<div class="form-check">
+            <input class="form-check-input categoryID" type="radio" name="flexRadioDefault1" value=${element.category_id} onclick="check(${element.category_id})">
+            <label class="form-check-label" for="flexRadioDefault1" style="font-size:1.1rem">
+              ${element.category_name}
+            </label>
+           
+          </div>`;
+          carouselItem.classList.add("category-name");
+          categoryCont.appendChild(carouselItem);
+        });
+      };
+      fetcData();
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      const select2 = document.querySelector(".vip-select-2");
+      const pills2 = document.querySelector("#select-pills-2");
+
+      let filterArr2 = [];
+      select2.addEventListener("change", function (event) {
+        const val = event.target.value;
+        if (!filterArr2.includes(val)) {
+          filterArr2.push(val);
+          pillsDisplay2();
+        }
+      });
+
+      const clearCategory2 = () => {
+        filterArr2.splice(0, filterArr2.length);
+        pills2.innerHTML = "";
+        select2.selectedIndex = 0;
+      };
+
+      const pillsDisplay2 = () => {
+        pills2.innerHTML = "";
+        filterArr2.forEach((item, index) => {
+          const pillDiv = document.createElement("div");
+          pillDiv.className = "pill-div";
+
+          const p = document.createElement("p");
+          p.innerText = item;
+          p.className = "pills-content";
+          const btn = document.createElement("button");
+          btn.innerText = "X";
+          btn.classList.add("pill-btn", `${index}`);
+          btn.addEventListener("click", function (e) {
+            let rmv = e.target.classList[1];
+            console.log(rmv);
+            if (rmv > -1) {
+              filterArr2.splice(rmv, 1);
+            }
+            pillsDisplay2();
+          });
+          pillDiv.append(p);
+          pillDiv.append(btn);
+          pills2.append(pillDiv);
+        });
+      };
+    </script>
+    <script>
+      AOS.init({
+        duration: 1000,
+      });
+    </script>
+
+    <script>
+      function format(input) {
+        if (input.value < 0) input.value = Math.abs(input.value);
+        if (input.value.length > 2) input.value = input.value.slice(0, 2);
+        $(input).blur(function () {
+          // if(input.value.length == 1) input.value=0+input.value;
+          // if(input.value.length == 0) input.value='01';
+          //* if you want to allow insert only 2 digits *//
+        });
+      }
+    </script>
+    <script>
+      let vipColFilter = document.querySelector(".vip-col-filter");
+      let resetDiv = document.querySelector(".reset-div");
+      const { display } = window.getComputedStyle(resetDiv, null);
+
+      resetDiv.addEventListener("click", function () {
+        resetDiv.style.display = "none";
+        clearCategory2();
+      });
+
+      vipColFilter.addEventListener("input", function () {
+        if (resetDiv.style.display == "none") {
+          resetDiv.style.display = "block";
+        }
+      });
+    </script>
+  </body>
+</html>

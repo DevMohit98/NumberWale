@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+#inputGroupOffer::before {
+  margin-right: 1rem;
+}
+.filter-cont button {
+  color: white;
+  background: #000;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 5px;
+  border: none;
+}
+
+.filter-cont a {
+  color: #000;
+
+  font-weight: bold;
+}
+
+.filter-cont a,
+.filter-cont button,
+.filter-cont select {
+  padding: 0.4rem 0.8rem;
+}
+.filter-cont a:hover {
+  background: linear-gradient(
+    to bottom,
+    rgba(242, 56, 0, 1) 0%,
+    rgba(247, 129, 2, 1) 100%
+  );
+  color: #fff;
+}
+
+#hard-btn {
+  padding: 0;
+  box-shadow: none !important;
+}
+
+.vip-select-2 {
+  border: none;
+  padding: 3px;
+  border: 1px solid red;
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  outline: none;
+}
+
+.categories-cont {
+  padding: 10px 5px;
+  background: #fff;
+}
+
+.category-name {
+  padding: 0.45rem 0.5rem;
+  background: #f3f1f6;
+  font-size: 1rem;
+  transition: all 0.2s;
+  font-family: "Roboto", sans-serif;
+}
+
+.col-18 {
+  border-radius: 12px;
+}
+
+.budget-label-vip {
+  font-size: 12px;
+}
+
+.collapse-select,
+.vip-select-2 {
+  padding: 0.2rem;
+  border: 1.5px solid #f23900;
+
+  border-radius: 4px;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  outline: none;
+}
+
+@media screen and (max-width: 450px) {
+  .filter-cont button {
+    color: white;
+    background: #000;
+    font-size: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+  }
+
+  .filter-cont button,
+  .filter-cont select {
+    padding: 0.4rem 0.8rem;
+  }
+}

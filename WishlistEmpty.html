@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="./Assets/orangeLogo.png"
+    />
+    <link rel="apple-touch-icon" href="./Assets/logo.png" />
+    <link rel="stylesheet" type="text/css" href="./Css/index3.css" />
+    <link rel="stylesheet" type="text/css" href="./Css/cart.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link href="./Css/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v6.1.1/css/all.css"
+    />
+    <title>VIP Mobile Number | Fancy</title>
+  </head>
+  <body>
+    <!--Desktop Screen start-->
+    <div class="d-none d-lg-block">
+      <!--Navbar start-->
+      <div id="nav-placeholder"></div>
+      <script>
+        $(document).ready(function () {
+          $("#nav-placeholder").load("./Template/Navbar.html");
+        });
+      </script>
+      <!--Navbar end-->
+      <!--empty section start-->
+      <section class="container">
+        <div class="cart-details-cont">
+          <figure>
+            <img
+              src="./Assets/emptycart3.png"
+              alt="empty-cart"
+              style="width: 100%; height: 100%"
+            />
+          </figure>
+          <h1 style="font-size: 2rem; font-family: 'Roboto', sans-serif">
+            No item in your wishlist
+          </h1>
+          <p style="font-size: 1.5rem; font-weight: lighter">
+            Please Choose your VIP Number & Buy now
+          </p>
+          <a href="./vipNumber.html" class="fw-bold">Goto Store</a>
+        </div>
+      </section>
+      <!--empty section end-->
+      <div id="foot-placeholder"></div>
+      <!--footer start-->
+      <script>
+        $(document).ready(function () {
+          $("#foot-placeholder").load("./Template/Footer.html");
+        });
+      </script>
+      <!--footer end-->
+    </div>
+    <!--Desktop Screen end-->
+    <!--Mobile screen start-->
+    <div class="d-block d-lg-none">
+      <!--Navbar start-->
+      <div id="mobNav-placeholder"></div>
+      <script>
+        $(document).ready(function () {
+          $("#mobNav-placeholder").load("./Template/mobileNavbar.html");
+        });
+      </script>
+      <!--Navbar end-->
+      <!--empty section start-->
+      <section>
+        <div class="container">
+          <div class="d-flex flex-column">
+            <div class="cart-details-cont">
+              <figure>
+                <img
+                  src="./Assets/emptycart3.png"
+                  alt="empty-cart"
+                  style="width: 100%; height: 100%"
+                />
+              </figure>
+              <h1
+                style="
+                  font-size: 1.3rem;
+                  font-family: 'Roboto', sans-serif;
+                  font-weight: bold;
+                "
+              >
+                No item in your wishlist
+              </h1>
+              <p style="font-size: 1rem; font-weight: lighter">
+                Please Choose your VIP Number & Buy now
+              </p>
+              <a href="./vipNumber.html" class="fw-bold">Goto Store</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--empty section end-->
+      <!--footer start-->
+      <div id="mobFoot-placeholder"></div>
+      <script>
+        $(document).ready(function () {
+          $("#mobFoot-placeholder").load("./Template/mobileFooter.html");
+        });
+      </script>
+      <!--footer end-->
+    </div>
+    <!--Mobile screen end-->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+      });
+    </script>
+  </body>
+</html>
