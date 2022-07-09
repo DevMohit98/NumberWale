@@ -99,8 +99,7 @@ Total -<strong class="mx-2">${sum_total}</strong> | Sum - <strong class="mx-2">$
       }
     });
 };
-
-/*let search_sum = screen.width > 700 ? "" : "_mob";
+let search_sum = screen.width > 700 ? "" : "_mob";
 document
   .querySelector(`.search_sum${search_sum}`)
   .addEventListener("click", (e) => {
@@ -116,16 +115,6 @@ document
       window.location = `vipNumber.html`;
     }
   });
-document.querySelector(`.search_number`).addEventListener("click", (e) => {
-  e.preventDefault();
-  let sum_total = document.querySelector(".search_number_left").value;
-
-  if (sum_total.length > 0) {
-    window.location = `vipNumber.html?search_num=${sum_total}&search_type=Anywhere`;
-  } else {
-    window.location = `vipNumber.html`;
-  }
-}); */
 let dataOfCategory = (
   count,
   number,
@@ -145,6 +134,7 @@ let dataOfCategory = (
     .then((data) => {
       if (data.status === "failure") {
         cardArr2.innerHTML = `<h1>${data.msg}</h1>`;
+        cardArrMob.innerHTML = `<h1>${data.msg}</h1>`;
       } else {
         let dataOfNums = data.data;
         cardArr2.innerHTML = "";

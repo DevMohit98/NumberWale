@@ -59,6 +59,7 @@
           <div class="container-fluid">
             <div class="row mb-3">
               <div class="col-xl-3 col-lg-3">
+                <!--filter start-->
                 <form>
                   <div class="mb-2 reset-div" style="display: none">
                     <button
@@ -84,13 +85,16 @@
                         min="0"
                         max="99"
                         type="number"
-                        placeholder="Sum total search"
-                        aria-label="Number"
-                        style="border: 1px solid orangered"
-                        oninput="format(this)"
+                        placeholder="Sum Total Search"
                         id="sum_total_search"
+                        aria-label="Number"
+                        style="border: 1px solid #9e48cd"
+                        oninput="Sum(this)"
                       />
-                      <button class="btn btn-outline-danger" type="submit">
+                      <button
+                        class="btn btn-outline-danger ms-1 search_sum"
+                        type="submit"
+                      >
                         <i class="fa-solid fa-magnifying-glass"></i>
                       </button>
                     </div>
@@ -162,7 +166,7 @@
                   </div>
                 </form>
               </div>
-
+              <!--filter end-->
               <div class="col-xl-9 col-lg-9 col-md-12 gx-1">
                 <div class="d-flex flex-column">
                   <div class="d-flex filter-cont align-items-center">
@@ -282,9 +286,8 @@
         </script>
       </div>
     </div>
-
-    <script src="./Js/js/bootstrap.min.js"></script>
     <script src="./Js/vipNumber.js"></script>
+    <script src="./Js/js/bootstrap.min.js"></script>
     <script>
       let categoryCont = document.querySelector(".categories-cont");
       let CategoryData;
@@ -319,7 +322,6 @@
     <script>
       const select2 = document.querySelector(".vip-select-2");
       const pills2 = document.querySelector("#select-pills-2");
-
       let filterArr2 = [];
       select2.addEventListener("change", function (event) {
         const val = event.target.value;
@@ -328,7 +330,6 @@
           pillsDisplay2();
         }
       });
-
       const clearCategory2 = () => {
         filterArr2.splice(0, filterArr2.length);
         pills2.innerHTML = "";
@@ -360,9 +361,13 @@
           pills2.append(pillDiv);
         });
       };
-      function format(input) {
-        if (input.value < 0) input.value = Math.abs(input.value);
-        if (input.value.length > 2) input.value = input.value.slice(0, 2);
+      function Sum(input) {
+        if (input.value < 0) {
+          input.value = Math.abs(input.value);
+        }
+        if (input.value > 2) {
+          input.value = input.value.slice(0, 2);
+        }
       }
       let vipColFilter = document.querySelector(".vip-col-filter");
       let resetDiv = document.querySelector(".reset-div");
@@ -395,6 +400,7 @@
         window.location = "Checkout.html?buynow=true";
       }
       let params = new URLSearchParams(window.location.search);
+
       let search_sum_filter =
         screen.width > 700
           ? document.querySelector(".sumtotal")
@@ -443,7 +449,7 @@
       });
       // defaultDataMob(count + 1, ...filters);
       document.querySelector(".more-sm").addEventListener("click", () => {
-        val += 1;
+        count += 1;
         defaultData(count + 1, ...filters);
       });
 

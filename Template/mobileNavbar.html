@@ -477,7 +477,7 @@
           id="collapseExample"
           style="border-top: 1px solid #eddfc4"
         >
-          <form class="form-inline px-2 mt-4 d-flex flex-column">
+          <form class="form-inline px-2 mt-4 d-flex flex-column filterFormM">
             <div>
               Number Starts With
               <select
@@ -530,9 +530,10 @@
                 placeholder="Sum total search"
                 aria-label="Number"
                 style="border: 1px solid red"
-                oninput="formatMobile(this)"
+                oninput="SumMobile(this)"
+                id="sum_total_search_mob"
               />
-              <button class="btn btn-outline-danger" type="submit">
+              <button class="btn btn-outline-danger search_sum_mob">
                 <i class="fa-solid fa-magnifying-glass"></i>
               </button>
             </div>
@@ -665,14 +666,9 @@
           bool = false;
         }
       });
-      function formatMobile(input) {
+      function SumMobile(input) {
         if (input.value < 0) input.value = Math.abs(input.value);
         if (input.value.length > 2) input.value = input.value.slice(0, 2);
-        $(input).blur(function () {
-          // if(input.value.length == 1) input.value=0+input.value;
-          // if(input.value.length == 0) input.value='01';
-          //* if you want to allow insert only 2 digits *//
-        });
       }
     </script>
     <script>
@@ -709,6 +705,7 @@
       fetcDataSm();
     </script>
     <!--script for categories end-->
+    <!---script for sum total navbar-->
     <script>
       document
         .getElementById("search_btn_mob")
@@ -723,5 +720,7 @@
           }
         });
     </script>
+
+    <!---script for sum total navbar end-->
   </body>
 </html>
