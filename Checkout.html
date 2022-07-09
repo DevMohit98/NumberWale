@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" href="./Assets/logo.png" />
+    <link rel="stylesheet" type="text/css" href="./Css/index3.css" />
+    <link rel="stylesheet" type="text/css" href="./Css/cart.css" />
+    <link rel="stylesheet" type="text/css" href="Css/Checkout.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link href="./Css/css/bootstrap.min.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v6.1.1/css/all.css"
+    />
+    <title>VIP Mobile Number | Fancy</title>
+  </head>
+  <body>
+    <!--Desktop screen start-->
+    <div class="d-none d-lg-block">
+      <!--navbar start-->
+      <div id="nav-placeholder"></div>
+      <script>
+        $(document).ready(function () {
+          $("#nav-placeholder").load("./Template/Navbar.html");
+        });
+      </script>
+      <!--navbar end-->
+      <section>
+        <div class="container">
+          <div class="d-flex flex-column">
+            <h1 class="cart-heading">Checkout Page</h1>
+            <div class="cart-details-cont detail placeOrder">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">NUMBER</th>
+                    <th scope="col">PRICE</th>
+                    <th scope="col">TOTAL</th>
+                  </tr>
+                </thead>
+                <tbody class="cart-data"></tbody>
+              </table>
+
+              <!-- <div class="checkoutForm mb-5">
+                <div class="row g-3 p-3">
+                  <div class="col">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Your name"
+                      aria-label="Your name"
+                      id="name"
+                    />
+                  </div>
+                  <div class="col">
+                    <input
+                      type="email"
+                      class="form-control"
+                      placeholder="Your email"
+                      aria-label="Your email"
+                      id="email"
+                    />
+                  </div>
+                  <div class="col">
+                    <input
+                      type="number"
+                      class="form-control"
+                      placeholder="Your number"
+                      aria-label="Your number"
+                      id="number"
+                    />
+                  </div>
+                </div>
+              </div> -->
+              <div class="cart-total d-flex flex-column">
+                <h1 class="text-center">Your Total Amount is :-</h1>
+                <h1 style="color: #000" class="total"></h1>
+              </div>
+              <button class="btn btn-primary mt-4 place_btn">
+                Place Order
+              </button>
+              <div class="d-flex flex-column mt-3">
+                <p>Note: Your payment is secured with 100% return guranteed.</p>
+                <img
+                  class="mx-3"
+                  src="./Assets/payment-options.png"
+                  style="width: 90%; height: auto"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--footer start-->
+      <div id="foot-placeholder"></div>
+      <script>
+        $(document).ready(function () {
+          $("#foot-placeholder").load("./Template/Footer.html");
+        });
+      </script>
+      <!--footer end-->
+    </div>
+    <!--Desktop screen end-->
+    <!--Mobile screen start-->
+    <div class="d-block d-lg-none">
+      <!--Navbar start-->
+      <div id="mobNav-placeholder"></div>
+      <script>
+        $(document).ready(function () {
+          $("#mobNav-placeholder").load("./Template/MobileNav.html");
+        });
+      </script>
+      <!--Navbar end-->
+      <section class="container">
+        <div class="d-flex flex-column detailSm">
+          <div class="cart-details-cont placeOrderMob" style="padding: 14px">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">NUMBER</th>
+                  <th scope="col">PRICE</th>
+                  <th scope="col">TOTAL</th>
+                </tr>
+              </thead>
+              <tbody class="cart-data-mobile"></tbody>
+            </table>
+            <!-- <div class="checkoutForm mb-5" style="width: 80vw">
+              <div class="row g-3 p-3">
+                <div class="col">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Your name"
+                    aria-label="Your name"
+                    id="name_mob"
+                  />
+                </div>
+              </div>
+              <div class="row g-3 p-3">
+                <div class="col">
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Your email"
+                    aria-label="Your email"
+                    id="email_mob"
+                  />
+                </div>
+              </div>
+              <div class="row g-3 p-3">
+                <div class="col">
+                  <input
+                    type="number"
+                    class="form-control"
+                    placeholder="Your number"
+                    aria-label="Your number"
+                    id="number_mob"
+                  />
+                </div>
+              </div>
+            </div> -->
+            <div class="cart-total">
+              <h1 class="text-center" style="font-size: 1.4rem">
+                Your Total Amount is :-
+              </h1>
+              <h1 style="color: #000" class="totalSm">₹ 3700</h1>
+            </div>
+            <button
+              class="btn btn-primary mt-2 place_btn_mob"
+              style="width: 70vw"
+            >
+              place Order
+            </button>
+            <p class="text-start mt-2" style="font-size: 1rem">
+              Note: Your payment is secured with 100% return guranteed.
+            </p>
+            <img src="./Assets/payment-options.png" />
+          </div>
+        </div>
+      </section>
+      <div id="mobFoot-placeholder"></div>
+      <script>
+        $(document).ready(function () {
+          $("#mobFoot-placeholder").load("./Template/mobileFooter.html");
+        });
+      </script>
+    </div>
+
+    <!--Mobile scrren end-->
+
+    <!---scripts-->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./Js/cart.js" type="module"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+      });
+    </script>
+    <!--script for cart desktop-->
+    <script>
+      let val1;
+      let cartData = document.querySelectorAll(".cart-data");
+      let cartDetail = document.querySelector(".detail");
+      let total = document.querySelector(".total");
+      let cartArr = [...cartData];
+      let params = new URLSearchParams(window.location.search);
+      if (params.get("buynow")) {
+        val1 = localStorage.getItem("checkout");
+      } else val1 = localStorage.getItem("cart");
+      let arr = JSON.parse(val1);
+      if (arr == null || arr.length == 0) {
+        document.querySelector(".cart-details-cont").innerHTML =
+          "<h1 class='text-center'>Please add some items to checkout!</h1>";
+      }
+      cartArr.map((item) => {
+        arr.forEach((val) => {
+          let tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>${val.number}</td>
+                    <td>${val.price}</td>
+                    <td>${val.price}</td>
+          `;
+          item.appendChild(tr);
+        });
+      });
+      const Total = arr.reduce((accumulator, Object) => {
+        return accumulator + Object.price;
+      }, 0);
+      total.innerHTML = ` ₹ ${Total}`;
+    </script>
+    <!--script for cart desktop end-->
+    <!--script for cart Mobile-->
+    <script>
+      let cartDataSm = document.querySelectorAll(".cart-data-mobile");
+      let cartDetailSm = document.querySelector(".detailSm");
+      let totalSm = document.querySelector(".totalSm");
+      let cartArrSm = [...cartDataSm];
+      let val1Sm = localStorage.getItem("cart");
+      if (params.get("buynow")) {
+        val1Sm = localStorage.getItem("checkout");
+      } else val1Sm = localStorage.getItem("cart");
+      let arrSm = JSON.parse(val1Sm);
+      if (arrSm == null || arrSm.length == 0) {
+        document.querySelector(".placeOrderMob").innerHTML =
+          "<h1 class='text-center'>Please add some items to checkout!</h1>";
+      }
+      cartArrSm.map((item) => {
+        arrSm.forEach((val) => {
+          let tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>${val.number}</td>
+                    <td>${val.price}</td>
+                    <td>${val.price}</td>
+          `;
+          item.appendChild(tr);
+        });
+      });
+      const TotalSm = arr.reduce((accumulator, Object) => {
+        return accumulator + Object.price;
+      }, 0);
+
+      let products = JSON.parse(localStorage.getItem("cart"));
+      let newProductsArray = [];
+      for (let i = 0; i < products.length; i++) {
+        newProductsArray.push({
+          product_id: products[i].product_id,
+          number: products[i].number,
+          number_rate: 0,
+          total: products[i].price,
+          upc_no: "",
+        });
+      }
+
+      //customer info
+      let customer_id;
+      let customer_name = "";
+      let customer_no = "";
+      let customer_email = "";
+      var myHeaders = new Headers();
+      myHeaders.append("token", localStorage.getItem("user"));
+
+      var requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        redirect: "follow",
+      };
+
+      fetch(
+        "https://vipnumberapi.bigboychoice.com/api/v1/customer/customer_info",
+        requestOptions
+      )
+        .then((response) => response.json())
+        .then((result) => {
+          if (result.status == "success") {
+            customer_id = result.data.customer_id;
+            customer_name = result.data.customer_name;
+            customer_no = result.data.customer_no;
+            customer_email = result.data.email;
+          } else localStorage.removeItem("user");
+        })
+        .catch((error) => console.log("error", error));
+      totalSm.innerHTML = `₹ ${TotalSm}`;
+      let place_order = screen.width > 700 ? "" : "_mob";
+      document
+        .querySelector(".place_btn" + place_order)
+        .addEventListener("click", () => {
+          if (customer_id > 0) {
+            var myHeaders = new Headers();
+            myHeaders.append("token", localStorage.getItem("user"));
+            myHeaders.append("Content-Type", "application/json");
+
+            var raw = JSON.stringify({
+              name: customer_name,
+              email: customer_email,
+              mobile_no: customer_no,
+              customer_id: customer_id,
+              order_total: Total,
+              assign_to: "",
+              order_status: "New",
+              payment_status: "Processing",
+              process_status: "Order initiated",
+              payment_id: "",
+              payment_method: "",
+              payment_no: "",
+              purchase_details: newProductsArray,
+            });
+
+            var requestOptions = {
+              method: "POST",
+              headers: myHeaders,
+              body: raw,
+              redirect: "follow",
+            };
+
+            fetch(
+              "https://vipnumberapi.bigboychoice.com/api/v1/customer/checkout_order",
+              requestOptions
+            )
+              .then((response) => response.json())
+              .then((result) => {
+                if (result.status == "success") {
+                  Toastify({
+                    text: "Order Placed Successfully!",
+                    duration: 3000,
+                    newWindow: true,
+                    close: true,
+                    gravity: "top", // `top` or `bottom`
+                    position: "right", // `left`, `center` or `right`
+                    stopOnFocus: true, // Prevents dismissing of toast on hover
+                    style: {
+                      background: "#32cd32",
+                    },
+                  }).showToast();
+                  setTimeout(() => {
+                    window.location = "/";
+                    localStorage.removeItem("cart");
+                  }, 3000);
+                } else {
+                  Toastify({
+                    text: "Unexpected Error!",
+                    duration: 3000,
+                    newWindow: true,
+                    close: true,
+                    gravity: "top", // `top` or `bottom`
+                    position: "right", // `left`, `center` or `right`
+                    stopOnFocus: true, // Prevents dismissing of toast on hover
+                    style: {
+                      background: "red",
+                    },
+                  }).showToast();
+                }
+              })
+              .catch((error) => console.log("error", error));
+          } else window.location = "sign.html";
+        });
+    </script>
+    <!--script for cart Mobile end-->
+    <!--scripts end-->
+  </body>
+</html>
