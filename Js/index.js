@@ -56,7 +56,7 @@ const FetchHome = async () => {
     <button><i class="fa-solid fa-heart"></i> 0</button> </div>
     <div class="ms-3">
     <button class="me-2" onclick="cart(${val.product_id})"><i class="fa-solid fa-cart-shopping"></i></button> 
-    <button>Buy</button> </div>
+    <button onclick="buyNow(${val.product_id})">Buy</button> </div>
     
     </div>
     </div>
@@ -116,7 +116,7 @@ const FetchHome2 = async () => {
     <button><i class="fa-solid fa-heart"></i> 0</button> </div>
     <div class="ms-3">
     <button class="me-2" onclick="cart(${val.product_id})"><i class="fa-solid fa-cart-shopping"></i></button> 
-    <button>Buy</button> </div>
+    <button onclick="buyNow(${val.product_id})">Buy</button> </div>
     
     </div>
     </div>
@@ -169,7 +169,7 @@ Total -<strong class="mx-2">${val.sum_total}</strong> | Sum - <strong class="mx-
 <button class="me-1"><i class="fa-solid fa-heart"></i> 0</button> </div>
 <div class="ms-md-5 ms-2">
 <button class="me-1"onclick="cart(${val.product_id})"><i class="fa-solid fa-cart-shopping"></i></button> 
-<button>Buy</button> </div>
+<button onclick="buyNow(${val.product_id})">Buy</button> </div>
 
 </div>
 </div>
@@ -222,7 +222,7 @@ Total -<strong class="mx-2">${val.sum_total}</strong> | Sum - <strong class="mx-
 <button class="me-1"><i class="fa-solid fa-heart"></i> 0</button> </div>
 <div class="ms-md-5 ms-2">
 <button class="me-1"onclick="cart(${val.product_id})"><i class="fa-solid fa-cart-shopping"></i></button> 
-<button>Buy</button> </div>
+<button onclick="buyNow(${val.product_id})">Buy</button> </div>
 
 </div>
 </div>
@@ -302,7 +302,7 @@ Total -<strong class="mx-2">37</strong> | Sum - <strong class="mx-2">8</strong> 
 <button class="me-1"><i class="fa-solid fa-heart"></i> 0</button> </div>
 <div class="ms-3">
 <button class="me-1"><i class="fa-solid fa-cart-shopping"></i></button> 
-<button>Buy</button> </div>
+<button onclick="buyNow(${val.product_id})">Buy</button> </div>
 
 </div>
 </div>
@@ -345,7 +345,7 @@ recentSm.map((item) => {
   <button class="me-1"><i class="fa-solid fa-heart"></i> 0</button> </div>
   <div class="ms-md-5 ms-2">
   <button class="me-1"><i class="fa-solid fa-cart-shopping"></i></button> 
-  <button>Buy</button> </div>
+  <button onclick="buyNow(${val.product_id})">Buy</button> </div>
   
   </div>
   </div>

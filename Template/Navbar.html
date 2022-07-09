@@ -128,12 +128,12 @@
      }
   })
      let logout = document.querySelector(".logout");
-      val = localStorage.getItem("user");
+      val = localStorage.getItem("UserInfo");
       if (val) {
         logout.innerHTML = "Log Out";
       }
       logout.addEventListener("click", () => {
-        localStorage.clear();
+        localStorage.removeItem("UserInfo");
       });
           if (!localStorage.getItem("cart"))
         localStorage.setItem("cart", JSON.stringify([]));

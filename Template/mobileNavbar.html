@@ -668,12 +668,11 @@
         });
     </script>
     <script>
-      let user = JSON.parse(localStorage.getItem("user"));
+      let user = JSON.parse(localStorage.getItem("UserInfo"));
       let loginMob = document.querySelector(".loginMob");
       let userMob = document.querySelector(".userMob");
       let userData = document.querySelector(".userData");
       let logoutMob = document.querySelector(".log-out-btn");
-      console.log(user);
       if (user === null) {
         userMob.classList.add("d-none");
         logoutMob.classList.add("d-none");
@@ -686,7 +685,7 @@
         `;
       }
       logoutMob.addEventListener("click", () => {
-        localStorage.removeItem("user");
+        localStorage.removeItem("UserInfo");
         setTimeout(() => {
           window.location.href = "./index3.html";
         }, 3000);
