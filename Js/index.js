@@ -53,7 +53,7 @@ const FetchHome = async () => {
     <div class="d-flex justify-content-center align-items-center card-icon-cont py-3">
     <div>
     <button class="me-2 btn-eye" onclick=window.location.href="./Detail.html?product=${val.product_id}"><i class="fa-solid fa-eye"></i> 0</button> 
-    <button><i class="fa-solid fa-heart"></i> 0</button> </div>
+    <button onclick="addToWishlist(${val.product_id})"><i class="fa-solid fa-heart"></i></button> </div>
     <div class="ms-3">
     <button class="me-2" onclick="cart(${val.product_id})"><i class="fa-solid fa-cart-shopping"></i></button> 
     <button onclick="buyNow(${val.product_id})">Buy</button> </div>
@@ -113,7 +113,7 @@ const FetchHome2 = async () => {
     <div class="d-flex justify-content-center align-items-center card-icon-cont py-3">
     <div>
     <button class="me-2 btn-eye" onclick=window.location.href="./Detail.html?product=${val.product_id}"><i class="fa-solid fa-eye"></i> 0</button> 
-    <button><i class="fa-solid fa-heart"></i> 0</button> </div>
+    <button onclick="addToWishlist(${val.product_id})"><i class="fa-solid fa-heart"></i></button> </div>
     <div class="ms-3">
     <button class="me-2" onclick="cart(${val.product_id})"><i class="fa-solid fa-cart-shopping"></i></button> 
     <button onclick="buyNow(${val.product_id})">Buy</button> </div>
@@ -166,7 +166,7 @@ Total -<strong class="mx-2">${val.sum_total}</strong> | Sum - <strong class="mx-
 <div class="d-flex justify-content-center align-items-center card-icon-cont py-2 py-md-3">
 <div>
 <button class="me-1 btn-eye"onclick=window.location.href="./Detail.html?product=${val.product_id}"><i class="fa-solid fa-eye"></i> 0</button> 
-<button class="me-1"><i class="fa-solid fa-heart"></i> 0</button> </div>
+<button class="me-1" onclick="addToWishlist(${val.product_id})"><i class="fa-solid fa-heart"></i></button> </div>
 <div class="ms-md-5 ms-2">
 <button class="me-1"onclick="cart(${val.product_id})"><i class="fa-solid fa-cart-shopping"></i></button> 
 <button onclick="buyNow(${val.product_id})">Buy</button> </div>
@@ -219,7 +219,7 @@ Total -<strong class="mx-2">${val.sum_total}</strong> | Sum - <strong class="mx-
 <div class="d-flex justify-content-center align-items-center card-icon-cont py-2 py-md-3">
 <div>
 <button class="me-1 btn-eye"onclick=window.location.href="./Detail.html?product=${val.product_id}"><i class="fa-solid fa-eye"></i> 0</button> 
-<button class="me-1"><i class="fa-solid fa-heart"></i> 0</button> </div>
+<button class="me-1" onclick="addToWishlist(${val.product_id})"><i class="fa-solid fa-heart"></i></button> </div>
 <div class="ms-md-5 ms-2">
 <button class="me-1"onclick="cart(${val.product_id})"><i class="fa-solid fa-cart-shopping"></i></button> 
 <button onclick="buyNow(${val.product_id})">Buy</button> </div>
@@ -299,7 +299,7 @@ Total -<strong class="mx-2">37</strong> | Sum - <strong class="mx-2">8</strong> 
 <div class="d-flex justify-content-center align-items-center card-icon-cont py-3">
 <div>
 <button class="me-1 btn-eye"><i class="fa-solid fa-eye"></i> 0</button> 
-<button class="me-1"><i class="fa-solid fa-heart"></i> 0</button> </div>
+<button class="me-1"onclick="addToWishlist(${val.product_id})"><i class="fa-solid fa-heart"></i> 0</button> </div>
 <div class="ms-3">
 <button class="me-1"><i class="fa-solid fa-cart-shopping"></i></button> 
 <button onclick="buyNow(${val.product_id})">Buy</button> </div>
@@ -338,11 +338,10 @@ recentSm.map((item) => {
   <div class="d-flex justify-content-center col-div-3 py-1">
   Total -<strong class="mx-2">37</strong> | Sum - <strong class="mx-2">8</strong> | <span>R2P</span>
   </div>
-  
   <div class="d-flex justify-content-center align-items-center card-icon-cont py-2 py-md-3">
   <div>
   <button class="me-1 btn-eye"><i class="fa-solid fa-eye"></i> 0</button> 
-  <button class="me-1"><i class="fa-solid fa-heart"></i> 0</button> </div>
+  <button class="me-1" onclick="addToWishlist(${val.product_id})"><i class="fa-solid fa-heart"></i> 0</button> </div>
   <div class="ms-md-5 ms-2">
   <button class="me-1"><i class="fa-solid fa-cart-shopping"></i></button> 
   <button onclick="buyNow(${val.product_id})">Buy</button> </div>
