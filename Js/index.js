@@ -55,7 +55,7 @@ const FetchHome = async () => {
     <button class="me-2 btn-eye" onclick=window.location.href="./Detail.html?product=${val.product_id}"><i class="fa-solid fa-eye"></i> 0</button> 
     <button><i class="fa-solid fa-heart"></i> 0</button> </div>
     <div class="ms-3">
-    <button class="me-2"><i class="fa-solid fa-cart-shopping"></i></button> 
+    <button class="me-2" onclick="cart(${val.product_id})"><i class="fa-solid fa-cart-shopping"></i></button> 
     <button>Buy</button> </div>
     
     </div>
@@ -115,7 +115,7 @@ const FetchHome2 = async () => {
     <button class="me-2 btn-eye" onclick=window.location.href="./Detail.html?product=${val.product_id}"><i class="fa-solid fa-eye"></i> 0</button> 
     <button><i class="fa-solid fa-heart"></i> 0</button> </div>
     <div class="ms-3">
-    <button class="me-2"><i class="fa-solid fa-cart-shopping"></i></button> 
+    <button class="me-2" onclick="cart(${val.product_id})"><i class="fa-solid fa-cart-shopping"></i></button> 
     <button>Buy</button> </div>
     
     </div>
@@ -168,7 +168,7 @@ Total -<strong class="mx-2">${val.sum_total}</strong> | Sum - <strong class="mx-
 <button class="me-1 btn-eye"onclick=window.location.href="./Detail.html?product=${val.product_id}"><i class="fa-solid fa-eye"></i> 0</button> 
 <button class="me-1"><i class="fa-solid fa-heart"></i> 0</button> </div>
 <div class="ms-md-5 ms-2">
-<button class="me-1"><i class="fa-solid fa-cart-shopping"></i></button> 
+<button class="me-1"onclick="cart(${val.product_id})"><i class="fa-solid fa-cart-shopping"></i></button> 
 <button>Buy</button> </div>
 
 </div>
@@ -221,7 +221,7 @@ Total -<strong class="mx-2">${val.sum_total}</strong> | Sum - <strong class="mx-
 <button class="me-1 btn-eye"onclick=window.location.href="./Detail.html?product=${val.product_id}"><i class="fa-solid fa-eye"></i> 0</button> 
 <button class="me-1"><i class="fa-solid fa-heart"></i> 0</button> </div>
 <div class="ms-md-5 ms-2">
-<button class="me-1"><i class="fa-solid fa-cart-shopping"></i></button> 
+<button class="me-1"onclick="cart(${val.product_id})"><i class="fa-solid fa-cart-shopping"></i></button> 
 <button>Buy</button> </div>
 
 </div>

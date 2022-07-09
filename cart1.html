@@ -36,7 +36,7 @@
         <div class="container">
           <div class="d-flex flex-column">
             <h1 class="cart-heading">Shopping Cart</h1>
-            <div class="cart-details-cont">
+            <div class="cart-details-cont detail">
               <table class="table table-bordered">
                 <thead>
                   <tr>
@@ -46,37 +46,30 @@
                     <th scope="col">TOTAL</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row"><i class="fa-solid fa-trash-can"></i></th>
-                    <td>9876543210</td>
-                    <td>2000</td>
-                    <td>2000</td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><i class="fa-solid fa-trash-can"></i></th>
-                    <td>9996267722</td>
-                    <td>1500</td>
-                    <td>1500</td>
-                  </tr>
-                </tbody>
+                <tbody class="cart-data"></tbody>
               </table>
               <div class="cart-total">
                 <h1 class="text-center">Cart totals</h1>
                 <table class="table table-bordered">
                   <tbody>
                     <tr>
+                      <td style="font-weight: bold">No. Of Items</td>
+                      <td class="numberOfItems"></td>
+                    </tr>
+                    <tr>
                       <td style="font-weight: bold">SubTotal</td>
-                      <td>3500</td>
+                      <td class="subtotal">3500</td>
                     </tr>
                     <tr>
                       <td style="font-weight: bold">Total</td>
-                      <td>3500</td>
+                      <td class="total">3500</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-              <button class="btn btn-primary mt-2">confirm number</button>
+              <button class="btn btn-primary mt-2 confirm">
+                confirm number
+              </button>
             </div>
           </div>
         </div>
@@ -102,7 +95,7 @@
       </script>
       <!--Navbar end-->
       <section class="container">
-        <div class="d-flex flex-column">
+        <div class="d-flex flex-column detailSm">
           <div class="cart-details-cont" style="padding: 14px">
             <table class="table table-bordered">
               <thead>
@@ -113,36 +106,31 @@
                   <th scope="col">TOTAL</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <th scope="row"><i class="fa-solid fa-trash-can"></i></th>
-                  <td>9876543210</td>
-                  <td>2000</td>
-                  <td>2000</td>
-                </tr>
-                <tr>
-                  <th scope="row"><i class="fa-solid fa-trash-can"></i></th>
-                  <td>9996267722</td>
-                  <td>1500</td>
-                  <td>1500</td>
-                </tr>
-              </tbody>
+              <tbody class="cart-data-mobile"></tbody>
             </table>
             <div class="cart-total">
               <table class="table table-bordered" style="width: 80vw">
                 <tbody>
                   <tr>
+                    <td style="font-weight: bold">No. Of Items</td>
+                    <td class="numberOfItemsMob"></td>
+                  </tr>
+                  <tr>
                     <td style="font-weight: bold">SubTotal</td>
-                    <td>3500</td>
+                    <td class="subtotalSm">3500</td>
                   </tr>
                   <tr>
                     <td style="font-weight: bold">Total</td>
-                    <td>3500</td>
+                    <td class="totalSm">3500</td>
                   </tr>
                 </tbody>
               </table>
             </div>
-            <button class="btn btn-primary mt-2" style="width: 70vw">
+            <button
+              class="btn btn-primary mt-2"
+              onclick="window.location = 'Checkout.html'"
+              style="width: 70vw"
+            >
               confirm number
             </button>
             <p class="text-start mt-2" style="font-size: 1rem">
@@ -159,7 +147,6 @@
         });
       </script>
     </div>
-
     <!--Mobile scrren end-->
 
     <!---scripts-->
@@ -169,6 +156,108 @@
         duration: 1000,
       });
     </script>
+    <script src="./Js/cart.js" type="module"></script>
+    <!--script for cart desktop-->
+    <script>
+      let cartData = document.querySelectorAll(".cart-data");
+      let cartDetail = document.querySelector(".detail");
+      let subtotal = document.querySelector(".subtotal");
+      let total = document.querySelector(".total");
+      let cartArr = [...cartData];
+      let val1 = localStorage.getItem("cart");
+      let arr = JSON.parse(val1);
+      if (arr == null || arr.length == 0) {
+        cartDetail.innerHTML = "";
+        cartDetail.innerHTML = `
+                <figure>
+                  <img src="./Assets/emptycart3.jpg" alt="empty-cart" style="width: 100%; height: 100%">
+                </figure>
+                <p class="mt-0">
+                  Your cart is empty. Look's like you haven't added anything to
+                  your cart yet.
+                </p>
+                <a href="./vipNumber.html" class="fw-bold">Keep Shopping</a>
+              `;
+      }
+      cartArr.map((item) => {
+        arr.forEach((val) => {
+          let tr = document.createElement("tr");
+          tr.innerHTML = `
+           <th scope="row"><i onclick="deleteCartItem(${val.product_id})" class="fa-solid fa-trash-can"></i></th>
+            <td>${val.number}</td>
+                    <td>${val.price}</td>
+                    <td>${val.price}</td>
+          `;
+          item.appendChild(tr);
+        });
+      });
+      const Total = arr.reduce((accumulator, Object) => {
+        return accumulator + Object.price;
+      }, 0);
+      subtotal.innerHTML = `₹ ${Total}`;
+      total.innerHTML = Total;
+      function deleteCartItem(id) {
+        let arr = JSON.parse(localStorage.getItem("cart"));
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i].product_id == id) {
+            arr.splice(i, 1);
+            localStorage.setItem("cart", JSON.stringify(arr));
+            location.reload();
+          }
+        }
+      }
+      document.querySelector(".numberOfItems").innerHTML = JSON.parse(
+        localStorage.getItem("cart")
+      ).length;
+      document.querySelector(".numberOfItemsMob").innerHTML = JSON.parse(
+        localStorage.getItem("cart")
+      ).length;
+    </script>
+    <!--script for cart desktop end-->
+    <!--script for cart Mobile-->
+    <script>
+      let cartDataSm = document.querySelectorAll(".cart-data-mobile");
+      let cartDetailSm = document.querySelector(".detailSm");
+      let subtotalSm = document.querySelector(".subtotalSm");
+      let totalSm = document.querySelector(".totalSm");
+      let cartArrSm = [...cartDataSm];
+      let val1Sm = localStorage.getItem("cart");
+      let arrSm = JSON.parse(val1Sm);
+      if (arrSm == null || arrSm.length == 0) {
+        cartDetailSm.innerHTML = "";
+        cartDetailSm.innerHTML = `<div class="cart-details-cont">
+                <figure>
+                  <img src="./Assets/emptycart3.jpg" alt="empty-cart" style="width: 100%; height: 100%">
+                </figure>
+                <p class="mt-0">
+                  Your cart is empty. Look's like you haven't added anything to
+                  your cart yet.
+                </p>
+                <a href="./vipNumber.html" class="fw-bold">Keep Shopping</a>
+              </div>`;
+      }
+      cartArrSm.map((item) => {
+        arrSm.forEach((val) => {
+          let tr = document.createElement("tr");
+          tr.innerHTML = `
+           <th scope="row"><i onclick="deleteCartItem(${val.product_id})" class="fa-solid fa-trash-can"></i></th>
+            <td>${val.number}</td>
+                    <td>${val.price}</td>
+                    <td>${val.price}</td>
+          `;
+          item.appendChild(tr);
+        });
+      });
+      const TotalSm = arr.reduce((accumulator, Object) => {
+        return accumulator + Object.price;
+      }, 0);
+      subtotalSm.innerHTML = `₹ ${TotalSm}`;
+      totalSm.innerHTML = TotalSm;
+      document.querySelector(".confirm").addEventListener("click", function () {
+        window.location.href = "./Checkout.html";
+      });
+    </script>
+    <!--script for cart Mobile end-->
     <!--scripts end-->
   </body>
 </html>

@@ -58,7 +58,7 @@ Total -<strong class="mx-2">${sum_total}</strong> | Sum - <strong class="mx-2">$
 <button class="me-1 btn-eye" onclick=window.location.href="./Detail.html?product=${product_id}"><i class="fa-solid fa-eye"></i> 0</button> 
 <button class="me-1"><i class="fa-solid fa-heart"></i> 0</button> </div>
 <div class="ms-3">
-<button class="me-1"><i class="fa-solid fa-cart-shopping"></i></button> 
+<button class="me-1" onclick="cart(${product_id})"><i class="fa-solid fa-cart-shopping"></i></button> 
 <button onclick="buyNow(${product_id})">Buy</button> </div>
 </div>
 </div>
@@ -88,7 +88,7 @@ Total -<strong class="mx-2">${sum_total}</strong> | Sum - <strong class="mx-2">$
 <button class="me-1 btn-eye"onclick=window.location.href="./Detail.html?product=${product_id}"><i class="fa-solid fa-eye"></i> 0</button> 
 <button class="me-1"><i class="fa-solid fa-heart"></i> 0</button> </div>
 <div class="ms-md-5 ms-2">
-<button class="me-1"><i class="fa-solid fa-cart-shopping"></i></button> 
+<button class="me-1" onclick="cart(${product_id})"><i class="fa-solid fa-cart-shopping"></i></button> 
 <button onclick="buyNow(${product_id})">Buy</button> </div>
 </div>
 </div>
@@ -174,7 +174,7 @@ Total -<strong class="mx-2">${sum_total}</strong> | Sum - <strong class="mx-2">$
 <button class="me-1 btn-eye" onclick=window.location.href="./Detail.html?product=${product_id}"><i class="fa-solid fa-eye"></i> 0</button> 
 <button class="me-1"><i class="fa-solid fa-heart"></i> 0</button> </div>
 <div class="ms-3">
-<button class="me-1"><i class="fa-solid fa-cart-shopping"></i></button> 
+<button class="me-1" onclick="cart(${product_id})"><i class="fa-solid fa-cart-shopping"></i></button> 
 <button onclick="buyNow(${product_id})">Buy</button> </div>
 </div>
 </div>
@@ -204,7 +204,7 @@ Total -<strong class="mx-2">${sum_total}</strong> | Sum - <strong class="mx-2">$
 <button class="me-1 btn-eye"onclick=window.location.href="./Detail.html?product=${product_id}"><i class="fa-solid fa-eye"></i> 0</button> 
 <button class="me-1"><i class="fa-solid fa-heart"></i> 0</button> </div>
 <div class="ms-md-5 ms-2">
-<button class="me-1"><i class="fa-solid fa-cart-shopping"></i></button> 
+<button class="me-1" onclick="cart(${product_id})"><i class="fa-solid fa-cart-shopping"></i></button> 
 <button onclick="buyNow(${product_id})">Buy</button> </div>
 </div>
 </div>

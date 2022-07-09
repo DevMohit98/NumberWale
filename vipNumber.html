@@ -26,7 +26,11 @@
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v6.1.1/css/all.css"
     />
-
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
     <title>VIP Mobile Number | Fancy</title>
   </head>
   <body>
@@ -288,6 +292,17 @@
     </div>
     <script src="./Js/vipNumber.js"></script>
     <script src="./Js/js/bootstrap.min.js"></script>
+    <script src="./Js/cart.js" type="module"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+      });
+    </script>
     <script>
       let categoryCont = document.querySelector(".categories-cont");
       let CategoryData;
@@ -311,12 +326,6 @@
         });
       };
       fetcData();
-    </script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init({
-        duration: 1000,
-      });
     </script>
     <!--filter desktop start-->
     <script>

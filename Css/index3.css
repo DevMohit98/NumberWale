@@ -1378,3 +1378,9 @@ section.range-slider input[type="range"]::-moz-focus-outer {
     top: -52px !important;
   }
 }
+cart-count {
+  margin-left: -3px;
+  margin-top: -5px;
+  font-size: 14px;
+  color: #303030;
+}
