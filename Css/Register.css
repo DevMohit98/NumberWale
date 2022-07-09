@@ -31,28 +31,35 @@
   margin-bottom: 20px;
   margin-top: 10px;
 }
-.register-form .form-label,
-.register-form .form-control .register-form .form-select {
+.register-lg-form .form-label,
+.register-lg-form .form-control .register-lg-form .form-select,
+.register-form-sm .form-label,
+.register-form-sm .form-control .register-form-sm .form-select {
   font-size: 1rem;
   font-family: "Montserrat", sans-serif;
 }
-.register-form .form-control:focus,
-.register-form .form-select:focus {
+.register-lg-form .form-control:focus,
+.register-lg-form .form-select:focus,
+.register-form-sm .form-control:focus,
+.register-form-sm .form-select:focus {
   border: 2px solid #f44b01 !important;
   box-shadow: none !important;
 }
-.register-form .btn-primary {
+.register-lg-form .btn-primary,
+.register-form-sm .btn-primary {
   width: auto;
   background-color: #f44b01 !important;
   border-color: #f44b01 !important;
   margin-left: 5px;
 }
-.register-form .btn {
+.register-lg-form .btn,
+.register-form-sm .btn {
   color: #fafafa;
   text-transform: uppercase;
   font-family: "Montserrat", sans-serif;
 }
-.register-form .btn-primary:focus {
+.register-lg-form .btn-primary:focus,
+.register-form-sm .btn-primary:focus {
   box-shadow: none !important;
   background-color: #f44b01 !important;
 }

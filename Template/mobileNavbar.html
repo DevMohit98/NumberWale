@@ -82,53 +82,6 @@
       <div class="modal-dialog m-0">
         <div class="modal-content" style="height: 100vh">
           <div
-            class="modal fade"
-            id="exampleModalLogin"
-            tabindex="-1"
-            aria-labelledby="exampleModalLogin"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content" style="background: #eee">
-                <div class="modal-header">
-                  <h5 class="modal-title fw-bold" id="exampleModalLabel">
-                    Login or Signup
-                  </h5>
-                  <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-toggle="modal"
-                    data-bs-target="#exampleModalLogin"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <div class="modal-body px-1">
-                  <div class="d-flex align-items-center flex-column">
-                    <input
-                      type="email"
-                      class="form-control"
-                      placeholder="Email / Number"
-                    />
-                    <small class="text-center mt-2" style="font-size: 0.8rem"
-                      >By continuing, I agree to the Terms & conditions</small
-                    >
-                    <button
-                      class="btn py-1 px-2 border-0 text-white mt-5"
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModalLogin"
-                      style="background: #ff5f01; width: 80%"
-                    >
-                      Continue
-                    </button>
-                    <a href="" class="mt-2 text-dark" style="font-size: 12px"
-                      >Login with password</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
             class="modal-header justify-content-start align-items-center border-0 px-1"
           >
             <div class="pt-2">
@@ -146,7 +99,7 @@
           </div>
           <div class="modal-body px-0">
             <div class="flex-column account-cont">
-              <section class="px-3 pb-1">
+              <section class="px-3 pb-1 loginMob">
                 <div class="d-flex align-items-center">
                   <figure class="mb-0">
                     <img
@@ -158,15 +111,14 @@
                   <button
                     class="p-2 border-0 text-white ms-3"
                     type="button"
-                    data-bs-toggle="modal"
-                    data-bs-target="#exampleModalLogin"
+                    onclick="window.location.href='/sign.html'"
                     style="background: #ff5f01; border-radius: 7px; width: 60%"
                   >
                     Login / Signup
                   </button>
                 </div>
               </section>
-              <section class="px-3 pb-1">
+              <section class="px-3 pb-1 userMob">
                 <div class="d-flex align-items-center">
                   <figure class="mb-0">
                     <img
@@ -175,11 +127,7 @@
                       style="width: 3.5rem; height: 3.5rem; border-radius: 50%"
                     />
                   </figure>
-                  <div class="d-flex flex-column ms-3">
-                    <h5 class="mb-0">Arpit Joshi</h5>
-                    <p class="mb-0">joshiarpit61@gmail.com</p>
-                    <p class="mb-0">9814685320</p>
-                  </div>
+                  <div class="d-flex flex-column ms-3 userData"></div>
                 </div>
               </section>
               <section
@@ -720,7 +668,31 @@
           }
         });
     </script>
-
+    <script>
+      let user = JSON.parse(localStorage.getItem("user"));
+      let loginMob = document.querySelector(".loginMob");
+      let userMob = document.querySelector(".userMob");
+      let userData = document.querySelector(".userData");
+      let logoutMob = document.querySelector(".log-out-btn");
+      console.log(user);
+      if (user === null) {
+        userMob.classList.add("d-none");
+        logoutMob.classList.add("d-none");
+      } else {
+        loginMob.classList.add("d-none");
+        userData.innerHTML = `
+         <h5 class="mb-0 userName">${user.customer_name}</h5>
+                    <p class="mb-0 userEmail">${user.email}</p>
+                    <p class="mb-0 userMobile">${user.customer_no}</p>
+        `;
+      }
+      logoutMob.addEventListener("click", () => {
+        localStorage.removeItem("user");
+        setTimeout(() => {
+          window.location.href = "./index3.html";
+        }, 3000);
+      });
+    </script>
     <!---script for sum total navbar end-->
   </body>
 </html>

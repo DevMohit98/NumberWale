@@ -14,7 +14,11 @@
     <link rel="stylesheet" type="text/css" href="./Css/index3.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="./CSS/Register.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v6.1.1/css/all.css"
@@ -25,7 +29,7 @@
       <div class="RegisterBg">
         <div class="Register p-3">
           <h1 class="register-title">Registration form</h1>
-          <form class="row g-3 register-lg-form" >
+          <form class="row g-3 register-lg-form">
             <div class="col-md-6">
               <label for="Name" class="form-label">Name</label>
               <input
@@ -33,7 +37,6 @@
                 class="form-control"
                 placeholder="Enter your name"
                 id="customer_name"
-                
               />
             </div>
             <div class="col-md-6">
@@ -45,11 +48,20 @@
                 placeholder="Enter your mobile no"
               />
             </div>
+            <div class="col-12">
+              <label for="mail" class="form-label">Email Id</label>
+              <input
+                type="email"
+                class="form-control"
+                id="customer_mail"
+                placeholder="Enter your email id"
+              />
+            </div>
             <div class="col-md-6">
               <label for="Passowrd" class="form-label">Password</label>
               <input
                 type="password"
-                class="form-control" 
+                class="form-control"
                 id="password"
                 placeholder="Enter your Passowrd"
               />
@@ -91,7 +103,14 @@
                 id="address"
               />
             </div>
-            <button type="button" id="submit" style="width:20%"  class="btn btn-primary">Create Account</button>
+            <button
+              type="button"
+              id="submit"
+              style="width: 20%"
+              class="btn btn-primary"
+            >
+              Create Account
+            </button>
           </form>
         </div>
       </div>
@@ -114,8 +133,7 @@
                 type="text"
                 class="form-control"
                 placeholder="Enter your name"
-                name="customer_name"  
-                
+                name="customer_name"
               />
             </div>
             <div class="col-md-6">
@@ -125,6 +143,15 @@
                 class="form-control"
                 placeholder="Enter your mobile no"
                 name="customer_no"
+              />
+            </div>
+            <div class="col-12">
+              <label for="mail" class="form-label">Email Id</label>
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Enter your email"
+                name="customer_mail"
               />
             </div>
             <div class="col-md-6">
@@ -143,7 +170,7 @@
                 class="form-control pin-m"
                 placeholder="Enter your post code"
                 oninput="PinMobile(this)"
-              name="pincode"
+                name="pincode"
               />
             </div>
             <div class="col-md-6">
@@ -173,7 +200,9 @@
                 name="address"
               />
             </div>
-            <button type="button" id="submit-sm" class="btn btn-primary">Create account</button>
+            <button type="button" id="submit-sm" class="btn btn-primary">
+              Create account
+            </button>
           </form>
         </div>
       </div>
@@ -237,106 +266,119 @@
     <!--script to fetch state and city Mobile end-->
 
     <script type="module">
-    
-import config from './conf/index.js';
+      import config from "./conf/index.js";
 
-async function postData(url = '', data = {}) {
-  try{
-  const response = await fetch(url, {
-    method: 'POST', 
-    mode: 'cors', 
-    cache: 'no-cache', 
-    credentials: 'same-origin', 
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    redirect: 'follow', 
-    referrerPolicy: 'no-referrer', 
-    body: JSON.stringify(data) 
-  });
-  return response.json(); }
-  catch(err){
-    console.error(err)
-  }
-}
+      async function postData(url = "", data = {}) {
+        try {
+          const response = await fetch(url, {
+            method: "POST",
+            mode: "cors",
+            cache: "no-cache",
+            credentials: "same-origin",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            redirect: "follow",
+            referrerPolicy: "no-referrer",
+            body: JSON.stringify(data),
+          });
+          return response.json();
+        } catch (err) {
+          console.error(err);
+        }
+      }
 
-document.getElementById("submit").addEventListener("click",async function(event){
-  
-    const formData=Array.from(document.querySelectorAll('.register-lg-form input')).reduce((acc,input)=>({...acc,[input.id]:input.value}),{})
-  
-const res=await postData(config.backendEndpoint+"/customer_signup",formData)
+      document
+        .getElementById("submit")
+        .addEventListener("click", async function (event) {
+          const formData = Array.from(
+            document.querySelectorAll(".register-lg-form input")
+          ).reduce((acc, input) => ({ ...acc, [input.id]: input.value }), {});
 
-if(res.status==="success"){
-console.log(res.msg)
-Toastify({
-  text: "User Added",
-  duration: 3000,
-  newWindow: true,
-  close: true,
-  gravity: "top", // `top` or `bottom`
-  position: "right", // `left`, `center` or `right`
-  stopOnFocus: true, // Prevents dismissing of toast on hover
-  style: {
-    background: "#32cd32",
-  }}).showToast();
-// window.location ;
-setTimeout(()=>window.location = './sign.html', 3000);
- }
-else{
-  Toastify({
-  text: res.msg,
-  duration: 3000,
-  newWindow: true,
-  close: true,
-  gravity: "top", // `top` or `bottom`
-  position: "right", // `left`, `center` or `right`
-  stopOnFocus: true, // Prevents dismissing of toast on hover
-  style: {
-    background: "red",
-  }}).showToast();
-}
-})
+          const res = await postData(
+            config.backendEndpoint + "/customer_signup",
+            formData
+          );
 
+          if (res.status === "success") {
+            console.log(res.msg);
+            Toastify({
+              text: "User Added",
+              duration: 3000,
+              newWindow: true,
+              close: true,
+              gravity: "top", // `top` or `bottom`
+              position: "right", // `left`, `center` or `right`
+              stopOnFocus: true, // Prevents dismissing of toast on hover
+              style: {
+                background: "#32cd32",
+              },
+            }).showToast();
+            // window.location ;
+            setTimeout(() => (window.location = "./sign.html"), 3000);
+          } else {
+            Toastify({
+              text: res.msg,
+              duration: 3000,
+              newWindow: true,
+              close: true,
+              gravity: "top", // `top` or `bottom`
+              position: "right", // `left`, `center` or `right`
+              stopOnFocus: true, // Prevents dismissing of toast on hover
+              style: {
+                background: "red",
+              },
+            }).showToast();
+          }
+        });
 
-document.getElementById("submit-sm").addEventListener("click",async function(event){
-  
-  const formData=Array.from(document.querySelectorAll('.register-form-sm input')).reduce((acc,input)=>({...acc,[input.name]:input.value}),{})
-  
+      document
+        .getElementById("submit-sm")
+        .addEventListener("click", async function (event) {
+          const formData = Array.from(
+            document.querySelectorAll(".register-form-sm input")
+          ).reduce((acc, input) => ({ ...acc, [input.name]: input.value }), {});
 
-const res=await postData(config.backendEndpoint+"/customer_signup",formData)
+          const res = await postData(
+            config.backendEndpoint + "/customer_signup",
+            formData
+          );
 
-if(res.status==="success"){
-
-Toastify({
-text: "User Added",
-duration: 3000,
-newWindow: true,
-close: true,
-gravity: "top", // `top` or `bottom`
-position: "right", // `left`, `center` or `right`
-stopOnFocus: true, // Prevents dismissing of toast on hover
-style: {
-  background: "#32cd32",
-}}).showToast();
-// window.location ;
-setTimeout(()=>window.location = './sign.html', 3000);
-}
-else{
-Toastify({
-text: res.msg,
-duration: 3000,
-newWindow: true,
-close: true,
-gravity: "top", // `top` or `bottom`
-position: "right", // `left`, `center` or `right`
-stopOnFocus: true, // Prevents dismissing of toast on hover
-style: {
-  background: "red",
-}}).showToast();
-}
-})
+          if (res.status === "success") {
+            Toastify({
+              text: "User Added",
+              duration: 3000,
+              newWindow: true,
+              close: true,
+              gravity: "top", // `top` or `bottom`
+              position: "right", // `left`, `center` or `right`
+              stopOnFocus: true, // Prevents dismissing of toast on hover
+              style: {
+                background: "#32cd32",
+              },
+            }).showToast();
+            // window.location ;
+            setTimeout(() => (window.location = "./sign.html"), 3000);
+          } else {
+            Toastify({
+              text: res.msg,
+              duration: 3000,
+              newWindow: true,
+              close: true,
+              gravity: "top", // `top` or `bottom`
+              position: "right", // `left`, `center` or `right`
+              stopOnFocus: true, // Prevents dismissing of toast on hover
+              style: {
+                background: "red",
+              },
+            }).showToast();
+          }
+        });
     </script>
-   
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
   </body>
 </html>
