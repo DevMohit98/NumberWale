@@ -258,11 +258,11 @@
               </button>
             </div>
           </div>
-          <div class="px-2" id="sm-nav-input" style="background-color: #fff">
+          <div class="p-2" id="sm-nav-input" style="background-color: #fff">
             <form
               class="form-inline mx-auto d-flex mx-auto px-1"
               style="
-                border: 2px solid #f23900;
+                border: 2px solid #ff5f01;
                 border-radius: 20px;
                 width: 100%;
               "
@@ -277,11 +277,11 @@
                 "
                 id="inputGroupSelect01_mob"
               >
-                <option selected value="Anywhere">Anywhere</option>
+                <option value="Anywhere" selected>Anywhere</option>
                 <option value="sum_total">Sum Total</option>
                 <option value="starts_with">Starts with</option>
                 <option value="ends_with">Ends with</option>
-                <option value="contain">Contains with</option>
+                <option value="contains">Contains with</option>
                 <option value="not_contains">Not Contains</option>
               </select>
               <input
@@ -298,7 +298,7 @@
                 id="search_btn_mob"
                 style="
                   background: #fff !important;
-                  color: #dc3545 !important;
+                  color: #ff5f01 !important;
                   padding: 4.5px 8px;
                   border-radius: 15px;
                   margin-top: 2px;
@@ -306,18 +306,6 @@
                 ><i class="fa-solid fa-magnifying-glass"></i
               ></a>
             </form>
-            <div class="d-flex justify-content-center">
-              <button
-                style="
-                  border-radius: 5px;
-                  width: 90%;
-                  font-size: 0.8rem !important;
-                "
-                class="col-btn mt-3 fw-bold py-1"
-              >
-                Reset <i class="fa-solid fa-arrows-rotate ms-2"></i>
-              </button>
-            </div>
           </div>
 
           <div class="overlay-content d-flex">
@@ -490,7 +478,10 @@
                 oninput="SumMobile(this)"
                 id="sum_total_search_mob"
               />
-              <button class="btn btn-outline-danger search_sum_mob">
+              <button
+                class="btn btn-outline-danger search_sum_mob"
+                type="submit"
+              >
                 <i class="fa-solid fa-magnifying-glass"></i>
               </button>
             </div>

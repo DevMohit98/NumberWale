@@ -82,7 +82,23 @@
                       border-radius: 5px;
                     "
                   >
-                    <h6 class="">SUM-TOTAL Search</h6>
+                    <h6 class="mt-3">SEARCH NUMBER</h6>
+                    <div class="form-inline d-flex align-items-center">
+                      <input
+                        class="form-control mt-2 search_number_left"
+                        type="number"
+                        placeholder="Search Number"
+                        aria-label="Number"
+                        style="border: 1px solid #f44b01"
+                      />
+                      <button
+                        class="btn btn-outline-danger mt-2 ms-1 search_number"
+                        type="submit"
+                      >
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                      </button>
+                    </div>
+                    <h6 class="mt-3">SUM-TOTAL Search</h6>
                     <div class="form-inline d-flex align-items-center">
                       <input
                         class="form-control sumtotal"
@@ -92,7 +108,7 @@
                         placeholder="Sum Total Search"
                         id="sum_total_search"
                         aria-label="Number"
-                        style="border: 1px solid #9e48cd"
+                        style="border: 1px solid #f44b01"
                         oninput="Sum(this)"
                       />
                       <button
@@ -385,6 +401,9 @@
 
       resetDiv.addEventListener("click", function () {
         resetDiv.style.display = "none";
+        window.location = "vipNumber.html";
+        document.querySelector(".sumtotal").value = "";
+
         clearCategory2();
       });
 

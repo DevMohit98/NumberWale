@@ -108,7 +108,6 @@ document
       screen.width > 700
         ? document.querySelector(".sumtotal").value
         : document.querySelector(".sumotalMobile").value;
-
     if (sum_total.length > 0) {
       window.location = `vipNumber.html?search_num=${sum_total}&search_type=sum_total`;
     } else {
