@@ -23,7 +23,24 @@
     />
     <title>VIP Mobile Number | Fancy</title>
 </head>
-<body>
+<body  onload="loader()">
+     <div
+      style="
+        width: 100vw;
+        height: 100vh;
+        background-color: white;
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 11111;
+      "
+      class="loader"
+    >
+      <div class="spinner-border" style="color: #ff5f01" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
   <div class="d-none d-lg-block">
 <div id="nav-placeholder"></div>
     <script>
@@ -1485,6 +1502,19 @@
       AOS.init({
          duration:1000}
       );
+       async function buyNow(id) {
+        console.log(id);
+        let cartArr = [];
+        const response = await fetch(
+          `https://vipnumberapi.bigboychoice.com/api/v1/customer/fetch_single_product?product=${id}`
+        );
+        const data = await response.json();
+        let item = data.data;
+        cartArr.push(item);
+        // console.log(cartArr);
+        localStorage.setItem("checkout", JSON.stringify(cartArr));
+        window.location = "Checkout.html?buynow=true";
+      }
     </script>     
 <script>
   let Hindi = document.querySelector(".hindi");
@@ -1571,6 +1601,9 @@
   function Store(){
     window.location="./vipNumber.html";
   }
+    function loader() {
+        $(".loader").hide();
+      }
 </script>
 </body>
 </html>

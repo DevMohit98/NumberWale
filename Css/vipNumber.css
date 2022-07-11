@@ -88,7 +88,9 @@ body {
   font-family: "Roboto", sans-serif;
   outline: none;
 }
-
+.filter-cont a {
+  cursor: pointer;
+}
 @media screen and (max-width: 450px) {
   .filter-cont button {
     color: white;

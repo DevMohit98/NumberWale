@@ -57,7 +57,7 @@ if (token) {
   
   <button class="me-1" onclick="addToWishlist(${val.product_id},'remove')"><i class="fa-solid fa-heart wish-heart" style="color:red" ></i></button> 
   
-  <button class="me-1"><i class="fa-solid fa-cart-shopping"></i></button> 
+  <button class="me-1" onclick="cart(${val.product_id})"><i class="fa-solid fa-cart-shopping"></i></button> 
  
   
   </div>
@@ -114,7 +114,7 @@ if (token) {
   <div>
   <button class="me-1" onclick="addToWishlist(${val.product_id},'remove')"><i class="fa-solid fa-heart"></i></button> </div>
   <div class="ms-md-5 ms-2">
-  <button class="me-1"><i class="fa-solid fa-cart-shopping"></i></button> 
+  <button class="me-1" onclick="cart(${val.product_id})"><i class="fa-solid fa-cart-shopping"></i></button> 
   
   </div>
   </div>
