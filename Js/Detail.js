@@ -89,25 +89,25 @@ const FetchProductData = async () => {
                   class="btn btn-primary mx-2"
                   style="background-color: #f44b01; border-color: #f44b01"
                 >
-                  <i class="fa-brands fa-whatsapp"></i>
+                  <a href="whatsapp://send/?phone=+91%2095300%2000007&text=Hi!" class="fa-brands fa-whatsapp" style="color:#fafafa"></a>
                 </div>
                 <div
                   class="btn btn-primary mx-2"
                   style="background-color: #f44b01; border-color: #f44b01"
                 >
-                  <i class="fa-brands fa-facebook-f"></i>
+                  <a href="https://www.facebook.com/vipnumberstore.in" class="fa-brands fa-facebook-f" style="color:#fafafa"></a>
                 </div>
                 <div
                   class="btn btn-primary mx-2"
                   style="background-color: #f44b01; border-color: #f44b01"
                 >
-                  <i class="fa-brands fa-twitter"></i>
+                  <a href="https://twitter.com/vvipnumberstore" class="fa-brands fa-twitter" style="color:#fafafa"></a>
                 </div>
                 <div
                   class="btn btn-primary mx-2"
                   style="background-color: #f44b01; border-color: #f44b01"
                 >
-                  <i class="fa-brands fa-instagram"></i>
+                  <a href="https://www.instagram.com/vipnumberstore/" class="fa-brands fa-instagram" style="color:#fafafa"></a>
                 </div>
               </div>
             </div>`;
@@ -199,25 +199,25 @@ const FetchProductDataSm = async () => {
               class="btn btn-primary mx-2"
               style="background-color: #f44b01; border-color: #f44b01"
             >
-              <i class="fa-brands fa-whatsapp"></i>
+               <a href="whatsapp://send/?phone=+91%2095300%2000007&text=Hi!" class="fa-brands fa-whatsapp" style="color:#fafafa"></a>
             </div>
             <div
               class="btn btn-primary mx-2"
               style="background-color: #f44b01; border-color: #f44b01"
             >
-              <i class="fa-brands fa-facebook-f"></i>
+                  <a href="https://www.facebook.com/vipnumberstore.in" class="fa-brands fa-facebook-f" style="color:#fafafa"></a>
             </div>
             <div
               class="btn btn-primary mx-2"
               style="background-color: #f44b01; border-color: #f44b01"
             >
-              <i class="fa-brands fa-twitter"></i>
+             <a href="https://twitter.com/vvipnumberstore" class="fa-brands fa-twitter" style="color:#fafafa"></a>
             </div>
             <div
               class="btn btn-primary mx-2"
               style="background-color: #f44b01; border-color: #f44b01"
             >
-              <i class="fa-brands fa-instagram"></i>
+               <a href="https://www.instagram.com/vipnumberstore/" class="fa-brands fa-instagram" style="color:#fafafa"></a>
             </div>
           </div>
         </div>

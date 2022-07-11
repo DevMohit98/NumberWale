@@ -46,8 +46,8 @@
         </div>
         <div class="icon-wrap-cont ms-2">|</div>
         <div class="d-flex align-items-center">     
-            <div class="d-flex align-items-center ms-3"><i class="fa-brands fa-facebook-f"></i>
-              <i class="fa-brands fa-twitter px-3"></i><i class="fa-brands fa-instagram"></i></div>
+            <div class="d-flex align-items-center ms-3"><a href="https://www.facebook.com/vipnumberstore.in" class="fa-brands fa-facebook-f" style="color: #fafafa;"></a>
+              <a href="https://twitter.com/vvipnumberstore" class="fa-brands fa-twitter px-3" style="color:#fafafa ;"></a><a href="https://www.instagram.com/vipnumberstore/" class="fa-brands fa-instagram" style="color: #fafafa"></a></div>
                 </div>
         </div>
     
@@ -81,6 +81,18 @@
                   <i class="fa-solid fa-magnifying-glass"></i></button>
                </form>
                <ul class="navbar-nav me-3" data-aos="fade-right">
+                 <li class="nav-item">
+                  <a class="nav-link" href="./cart1.html"><i class="fa-solid fa-cart-shopping me-1"><span
+                        class="cart-count"
+                        style="
+                          position: relative;
+                          bottom: 10px;
+                          left: 5px;
+                          color: #ff5b01;
+                        "
+                      ></span>
+                  </i>Cart</a>
+                </li>
                 <li class="nav-item d-flex flex-column align-items-center">
                   <a class="nav-link"  href="./index3.html"><span class="fa-solid fa-house me-1"></span>Home</a>
                 </li>
@@ -96,10 +108,6 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="./contactUs.html"><i class="fa-solid fa-phone me-1"></i>Contact</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="./cart1.html"><i class="fa-solid fa-cart-shopping me-1">
-                  </i>Cart</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="./Register.html"><i class="fa-solid fa-user me-1"></i></a>
@@ -145,6 +153,14 @@
           }&search_type=${document.getElementById("inputGroupSelect01").value}`;
         }
       });
+        let mob = screen.width > 700 ? "" : "-mob";
+      setInterval(() => {
+        if (localStorage.getItem("cart").length > 0) {
+          document.querySelector(".cart-count" + mob).innerHTML = JSON.parse(
+            localStorage.getItem("cart")
+          ).length;
+        }
+      }, 400);
        </script>
       
 </body>

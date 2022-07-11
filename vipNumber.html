@@ -403,7 +403,6 @@
         resetDiv.style.display = "none";
         window.location = "vipNumber.html";
         document.querySelector(".sumtotal").value = "";
-
         clearCategory2();
       });
 
@@ -428,60 +427,6 @@
         localStorage.setItem("checkout", JSON.stringify(cartArr));
         window.location = "Checkout.html?buynow=true";
       }
-      let params = new URLSearchParams(window.location.search);
-
-      let search_sum_filter =
-        screen.width > 700
-          ? document.querySelector(".sumtotal")
-          : document.querySelector(".sumotalMobile");
-      if (params.get("search_type") == "sum_total") {
-        search_sum_filter.setAttribute("value", params.get("search_num"));
-      }
-
-      if (params.get("search_type") == "Anywhere") {
-        document
-          .querySelector(".search_number_left")
-          .setAttribute("value", params.get("search_num"));
-      }
-
-      let number = params.get("search_num") ? params.get("search_num") : "";
-      let sum_total =
-        screen.width > 700
-          ? document.querySelector(".sumtotal").value
-          : document.querySelector(".sumotalMobile").value;
-      let not_contains = "";
-      let sort = "";
-      let low_price = "";
-      let high_price = "";
-      let number_series = "";
-      let search_type = params.get("search_type")
-        ? params.get("search_type")
-        : "";
-      let category = "";
-
-      let filters = [
-        number,
-        sum_total,
-        not_contains,
-        sort,
-        low_price,
-        high_price,
-        number_series,
-        search_type,
-        category,
-      ];
-      let count = 0;
-      defaultData(count + 1, ...filters);
-      document.querySelector(".more").addEventListener("click", () => {
-        count += 1;
-        defaultData(count + 1, ...filters);
-      });
-      // defaultDataMob(count + 1, ...filters);
-      document.querySelector(".more-sm").addEventListener("click", () => {
-        count += 1;
-        defaultData(count + 1, ...filters);
-      });
-
       async function Check(id) {
         filters[8] = id;
         dataOfCategory(count + 1, ...filters);

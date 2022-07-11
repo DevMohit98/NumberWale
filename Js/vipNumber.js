@@ -99,21 +99,6 @@ Total -<strong class="mx-2">${sum_total}</strong> | Sum - <strong class="mx-2">$
       }
     });
 };
-let search_sum = screen.width > 700 ? "" : "_mob";
-document
-  .querySelector(`.search_sum${search_sum}`)
-  .addEventListener("click", (e) => {
-    e.preventDefault();
-    let sum_total =
-      screen.width > 700
-        ? document.querySelector(".sumtotal").value
-        : document.querySelector(".sumotalMobile").value;
-    if (sum_total.length > 0) {
-      window.location = `vipNumber.html?search_num=${sum_total}&search_type=sum_total`;
-    } else {
-      window.location = `vipNumber.html`;
-    }
-  });
 let dataOfCategory = (
   count,
   number,
