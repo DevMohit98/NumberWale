@@ -133,7 +133,7 @@
         logout.innerHTML = "Log Out";
       }
       logout.addEventListener("click", () => {
-        localStorage.removeItem("UserInfo");
+        localStorage.clear();
       });
           if (!localStorage.getItem("cart"))
         localStorage.setItem("cart", JSON.stringify([]));
