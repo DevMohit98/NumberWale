@@ -202,6 +202,7 @@
 
     <!---scripts-->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src="./Js/cart.js" type="module"></script>
     <script
       type="text/javascript"
@@ -215,6 +216,7 @@
     <!--script for cart desktop-->
     <script>
       let val1;
+      let ifMob = screen.width > 700 ? "" : "_mob";
       let cartData = document.querySelectorAll(".cart-data");
       let cartDetail = document.querySelector(".detail");
       let total = document.querySelector(".total");
@@ -239,7 +241,7 @@
           item.appendChild(tr);
         });
       });
-      const Total = arr.reduce((accumulator, Object) => {
+      let Total = arr.reduce((accumulator, Object) => {
         return accumulator + Object.price;
       }, 0);
       total.innerHTML = ` ₹ ${Total}`;
@@ -292,6 +294,9 @@
       let customer_name = "";
       let customer_no = "";
       let customer_email = "";
+      let customer_address = "";
+      let customer_state = "";
+      let customer_pincode = "";
       var myHeaders = new Headers();
       myHeaders.append("token", localStorage.getItem("user"));
 
@@ -312,6 +317,9 @@
             customer_name = result.data.customer_name;
             customer_no = result.data.customer_no;
             customer_email = result.data.email;
+            customer_address = result.data.address;
+            customer_state = result.data.state;
+            customer_pincode = result.data.pincode;
           } else localStorage.removeItem("user");
         })
         .catch((error) => console.log("error", error));
@@ -355,22 +363,116 @@
               .then((response) => response.json())
               .then((result) => {
                 if (result.status == "success") {
-                  Toastify({
-                    text: "Order Placed Successfully!",
-                    duration: 3000,
-                    newWindow: true,
-                    close: true,
-                    gravity: "top", // `top` or `bottom`
-                    position: "right", // `left`, `center` or `right`
-                    stopOnFocus: true, // Prevents dismissing of toast on hover
-                    style: {
-                      background: "#32cd32",
+                  var options = {
+                    key: "rzp_test_RmpJQEiO2yqpxv",
+                    amount: parseInt(Total) * 100, // Amount is in currency subunits. Default currency is INR. Hence, 29935 refers to 29935 paise or INR 299.35.
+                    currency: "INR",
+                    name: "VIP NUMBER CLUB",
+                    description: "VIP NUMBER CLUB",
+                    image: "Assets/orangeLogo.png",
+                    //"order_id": "order_9A33XWu170gUtm",//This is a sample Order ID. Create an Order using Orders API. (https://razorpay.com/docs/payment-gateway/orders/integration/#step-1-create-an-order). Refer the Checkout form table given below
+                    handler: function (response) {
+                      var razorpay_payment_id = response.razorpay_payment_id;
+                      // onpage-loader
+                      $.ajax({
+                        type: "POST",
+                        url: "php/get-cap.php",
+                        dataType: "json",
+                        data: {
+                          razorpay_idpay: razorpay_payment_id,
+                          amounts: parseInt(Total),
+                        },
+                        success: function (response1) {
+                          // console.log(response1);
+                          if (response1.status == 201) {
+                            // alert("GetSubscriberId_Basic");
+                            // alert(response1.total);
+                            // alert(response1.currency_code);
+                            // alert(response1.capture_status);
+                            capture_status = response1.capture_status;
+                            // alert(capture_status);
+
+                            var myHeaders = new Headers();
+                            myHeaders.append(
+                              "token",
+                              localStorage.getItem("user")
+                            );
+                            myHeaders.append(
+                              "Content-Type",
+                              "application/json"
+                            );
+
+                            var raw = JSON.stringify({
+                              name: customer_name,
+                              email: customer_email,
+                              mobile_no: customer_no,
+                              customer_id: customer_id,
+                              order_total: Total,
+                              assign_to: "",
+                              order_status: "Pending",
+                              payment_status: "Order placed",
+                              process_status: "Pending",
+                              payment_id: razorpay_payment_id,
+                              payment_method: "Razorpay",
+                              payment_no: "",
+                            });
+
+                            var requestOptions = {
+                              method: "POST",
+                              headers: myHeaders,
+                              body: raw,
+                              redirect: "follow",
+                            };
+
+                            fetch(
+                              "https://vipnumberapi.bigboychoice.com/api/v1/customer/update_order/" +
+                                result.data.order_no,
+                              requestOptions
+                            )
+                              .then((response) => response.json())
+                              .then((result) => {
+                                if (result.status == "success") {
+                                  Toastify({
+                                    text: "Order Placed Successfully!",
+                                    duration: 3000,
+                                    newWindow: true,
+                                    close: true,
+                                    gravity: "top", // `top` or `bottom`
+                                    position: "right", // `left`, `center` or `right`
+                                    stopOnFocus: true, // Prevents dismissing of toast on hover
+                                    style: {
+                                      background: "#32cd32",
+                                    },
+                                  }).showToast();
+                                  setTimeout(() => {
+                                    localStorage.removeItem("cart");
+                                    window.location = "/";
+                                  }, 1000);
+                                }
+                              })
+                              .catch((error) => console.log("error", error));
+                          }
+                        },
+                      });
+                      var razorpay_payment_id = response.razorpay_payment_id;
                     },
-                  }).showToast();
-                  setTimeout(() => {
-                    window.location = "/index3.html";
-                    localStorage.removeItem("cart");
-                  }, 3000);
+                    prefill: {
+                      name: customer_name,
+                      phone: customer_no,
+                      // "contact": $("#phone").val()
+                    },
+                    notes: {
+                      address: customer_address,
+                      state: customer_state,
+                      postcode: customer_pincode,
+                    },
+                    theme: {
+                      color: "#f44b01",
+                    },
+                  };
+
+                  var rzp1 = new Razorpay(options);
+                  rzp1.open();
                 } else {
                   Toastify({
                     text: "Unexpected Error!",
@@ -389,6 +491,107 @@
               .catch((error) => console.log("error", error));
           } else window.location = "sign.html";
         });
+      let checkMob = screen.width > 700 ? "" : "Sm";
+      let count = 1;
+      $(".coupon_btn" + ifMob).click(() => {
+        if ($(".coupon" + ifMob).val().length > 0) {
+          var myHeaders = new Headers();
+          myHeaders.append("token", localStorage.getItem("user"));
+          myHeaders.append("Content-Type", "application/json");
+
+          var raw = JSON.stringify({
+            coupon: $(".coupon" + ifMob).val(),
+          });
+
+          var requestOptions = {
+            method: "POST",
+            headers: myHeaders,
+            body: raw,
+            redirect: "follow",
+          };
+
+          fetch(
+            "https://vipnumberapi.bigboychoice.com/api/v1/customer/apply_coupon",
+            requestOptions
+          )
+            .then((response) => response.json())
+            .then((result) => {
+              if (result.status == "success" && count == 1) {
+                count += 1;
+                let discount_percent = result.data.discount_percent;
+                let amount = $(".total" + checkMob)
+                  .html()
+                  .split("₹");
+
+                if (result.data.min_purchase <= parseInt(amount[1])) {
+                  let totalAmount = (amount[1] * discount_percent) / 100;
+                  $(".total" + checkMob).html(amount[1] - totalAmount);
+                  $(".total" + checkMob).html(
+                    "₹ " + $(".total" + checkMob).html()
+                  );
+                  Total = amount[1] - totalAmount;
+                  Toastify({
+                    text: "Coupon applied successfully!",
+                    duration: 3000,
+                    newWindow: true,
+                    close: true,
+                    gravity: "top", // `top` or `bottom`
+                    position: "right", // `left`, `center` or `right`
+                    stopOnFocus: true, // Prevents dismissing of toast on hover
+                    style: {
+                      background: "#32cd32",
+                    },
+                  }).showToast();
+                } else {
+                  Toastify({
+                    text: `Please make a purchase of atleast ${result.data.min_purchase} to avail this coupon!`,
+                    duration: 3000,
+                    newWindow: true,
+                    close: true,
+                    gravity: "top", // `top` or `bottom`
+                    position: "right", // `left`, `center` or `right`
+                    stopOnFocus: true, // Prevents dismissing of toast on hover
+                    style: {
+                      background: "red",
+                    },
+                  }).showToast();
+                }
+              } else {
+                Toastify({
+                  text: "Not Applicable!",
+                  duration: 3000,
+                  newWindow: true,
+                  close: true,
+                  gravity: "top", // `top` or `bottom`
+                  position: "right", // `left`, `center` or `right`
+                  stopOnFocus: true, // Prevents dismissing of toast on hover
+                  style: {
+                    background: "red",
+                  },
+                }).showToast();
+              }
+            })
+            .catch((error) => console.log("error", error));
+        } else {
+          Toastify({
+            text: "Please enter a valid coupon name!",
+            duration: 3000,
+            newWindow: true,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "right", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+              background: "red",
+            },
+          }).showToast();
+        }
+      });
+
+      $("#applyCoupon" + ifMob).click(() => {
+        $(".couponBox" + ifMob).removeClass("d-none");
+        $("#applyCoupon" + ifMob).hide();
+      });
     </script>
     <!--script for cart Mobile end-->
     <!--scripts end-->
