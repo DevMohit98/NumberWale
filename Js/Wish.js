@@ -1,4 +1,3 @@
-let wishArr = [1, 2];
 let cardWish1 = document.querySelectorAll(".card-wish-row");
 const cardWish = [...cardWish1];
 let token = localStorage.getItem("user");
@@ -112,7 +111,7 @@ if (token) {
   
   <div class="d-flex justify-content-center align-items-center card-icon-cont py-2 py-md-3">
   <div>
-  <button class="me-1" onclick="addToWishlist(${val.product_id},'remove')"><i class="fa-solid fa-heart"></i></button> </div>
+  <button class="me-1" onclick="addToWishlist(${val.product_id},'remove')"><i class="fa-solid fa-heart" style="color:red"></i></button> </div>
   <div class="ms-md-5 ms-2">
   <button class="me-1" onclick="cart(${val.product_id})"><i class="fa-solid fa-cart-shopping"></i></button> 
   
